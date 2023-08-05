@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - dev
+      - master
 env:
   MONGODB_DB_NAME: Cluster0
 jobs:
@@ -12,6 +13,7 @@ jobs:
       MONGODB_CLUSTER_ADDRESS: cluster0.hc1bayg.mongodb.net
       MONGODB_USERNAME: jain18.garima
       MONGODB_PASSWORD: Twinkle@0909
+      PORT: 8080
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -37,5 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Output information
-        run: |        
+        run: |
+          echo "MONGODB_USERNAME: ${{env.MONGODB_USERNAME}}"
           echo "MONGODB_DB_NAME: ${{env.MONGODB_DB_NAME}}"
